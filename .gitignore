@@ -1,1 +1,4 @@
 creds
+latest_token.b64
+latest_block_storage.json
+block_storage_table.txt
