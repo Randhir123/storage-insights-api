@@ -110,6 +110,27 @@ PY
 
 The output file `block_storage_table.txt` contains the formatted table and can be reviewed or shared as needed.
 
+## Python Automation
+
+The repository ships with a lightweight CLI helper, `storage_insights.py`, that bundles the steps above.
+
+```bash
+python storage_insights.py \
+  --table \
+  --json-out latest_block_storage.json \
+  --table-out block_storage_table.txt
+```
+
+Key options:
+
+- `--creds PATH` &mdash; alternate credentials file (defaults to `creds`).
+- `--storage-type VALUE` &mdash; filter by `block` (default), `filer`, `object`, or leave empty for all.
+- `--token-out PATH` &mdash; save the freshly issued token to a file.
+- `--limit N` &mdash; cap the number of rows in the table output.
+- `--quiet` &mdash; suppress summary logging when scripting the command.
+
+Every invocation requests a fresh token, writes it when requested, and fetches the latest storage system payload before producing optional summaries.
+
 ## Housekeeping
 
 - Remove `latest_token.b64`, `latest_block_storage.json`, or other scratch files when they are no longer needed.
